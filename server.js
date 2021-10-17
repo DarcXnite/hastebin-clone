@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const data = require('./default.json');
+const MONGODBURI = data.mongoURI;
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -8,13 +10,10 @@ app.use(express.urlencoded({ extended: true }));
 
 const Document = require('./models/Document');
 const mongoose = require('mongoose');
-mongoose.connect(
-	'mongodb+srv://davis1234:davis1234@hastebin-clone.d2yaq.mongodb.net/hastebin?retryWrites=true&w=majority',
-	{
-		useUnifiedTopology: true,
-		useNewUrlParser: true,
-	}
-);
+mongoose.connect(MONGODBURI, {
+	useUnifiedTopology: true,
+	useNewUrlParser: true,
+});
 
 app.get('/', (req, res) => {
 	const code = `Welcome to Hastebin Clone!
