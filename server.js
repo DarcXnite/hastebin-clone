@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const data = require('./default.json');
-const MONGODBURI = data.mongoURI;
+const MONGODBURI = process.env.MONGODB_URI;
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
