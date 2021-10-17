@@ -8,10 +8,13 @@ app.use(express.urlencoded({ extended: true }));
 
 const Document = require('./models/Document');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/hastebin-clone', {
-	useUnifiedTopology: true,
-	useNewUrlParser: true,
-});
+mongoose.connect(
+	'mongodb+srv://davis1234:davis1234@hastebin-clone.d2yaq.mongodb.net/hastebin?retryWrites=true&w=majority',
+	{
+		useUnifiedTopology: true,
+		useNewUrlParser: true,
+	}
+);
 
 app.get('/', (req, res) => {
 	const code = `Welcome to Hastebin Clone!
@@ -59,5 +62,5 @@ app.get('/:id', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-	console.log('App is running');
+	console.log(`App is running on ${PORT}`);
 });
