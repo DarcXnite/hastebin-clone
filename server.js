@@ -58,4 +58,6 @@ app.get('/:id', async (req, res) => {
 	}
 });
 
-app.listen(PORT);
+app.listen(PORT, () => {
+	console.log('App is running');
+});
