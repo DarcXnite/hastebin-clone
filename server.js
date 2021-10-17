@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 const Document = require('./models/Document');
 const mongoose = require('mongoose');
 mongoose.connect(
-	'mongodb+srv://davis1234:davis1234@hastebin-clone.d2yaq.mongodb.net/hastebin?retryWrites=true&w=majority',
+	,
 	{
 		useUnifiedTopology: true,
 		useNewUrlParser: true,
